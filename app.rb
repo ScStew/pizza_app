@@ -25,3 +25,10 @@ end
 get "/confirm" do 
 	erb :confirm, locals: {size:session[:size],crust:session[:crust], meats:session[:meats],veggies:session[:veggies], special:session[:special]}
 end
+
+post "/confirm" do
+meats = params[:meats]
+veggies = params[:veggies]
+special = params[:special]
+"#{meats}<br>#{veggies}<br>#{special}"
+end
