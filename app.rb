@@ -1,7 +1,7 @@
 require "sinatra"
 enable "sessions"
 get "/" do
-	erb: names
+	erb :names
 end
 
 post "/names" do
