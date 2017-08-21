@@ -1,1 +1,13 @@
 please confirm your order
+
+<form method = "post" action = "confirm">
+	<%=size%><br>
+	<%=crust%> crust<br>
+	<h1>meats</h1>
+	<%meats.each do |x|%>
+		<input type = "radio" name = "meats[]" value = "<%=x%>">yes
+		<input type = "radio" name = "meats[]" value = "">no
+		<%=x%><br>
+	<%end%>
+
+
