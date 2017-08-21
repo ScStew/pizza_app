@@ -10,13 +10,18 @@ post "/names" do
 end
 
 get "/size" do
-	erb :size, locals:[lname:session[:lname]]
+	erb :size, locals: {lname:session[:lname]}
 end
 
 post "/size" do
-	size = params[:size]
-	crust = params[:crust]
-	meats = params[:meats]
-	veggies = params[:veggies]
-	special = params[:special]
+	session[:size] = params[:size]
+	session[:crust] = params[:crust]
+	session[:meats] = params[:meats]
+	session[:veggies] = params[:veggies]
+	session[:special]= params[:special]
+	redirect "/confirm"
+end
+
+get "/confirm" do 
+	erb :confirm, locals: {size:session[:size],crust:session[:crust], meats:session[:meats],veggies:session[:veggies], special:session[:session]}
 end
