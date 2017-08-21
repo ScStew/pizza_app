@@ -5,7 +5,10 @@ get "/" do
 end
 
 post "/names" do
-	session[:fname] = params[:fname]
 	session[:lname] = params[:lname]
- 	"work in progress"
+ 	redirect "/size"
+end
+
+get "/size" do
+	erb :size, locals:[lname:session[:lname]]
 end
