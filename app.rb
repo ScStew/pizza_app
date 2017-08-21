@@ -23,5 +23,5 @@ post "/size" do
 end
 
 get "/confirm" do 
-	erb :confirm, locals: {size:session[:size],crust:session[:crust], meats:session[:meats],veggies:session[:veggies], special:session[:session]}
+	erb :confirm, locals: {size:session[:size],crust:session[:crust], meats:session[:meats],veggies:session[:veggies], special:session[:special]}
 end
