@@ -7,7 +7,10 @@ Heres your pizza!!!!!<br><br>
 	<%if value == "on"%>
 		<%meats.delete(key)%>
 	<%else%>
+	<div id = "toppings">
+	<img src = "/images/<%=value%>.png" width = "40" height = "40">
 		<%=value%><br>
+	</div>
 	<%end%>
 <%end%>
 
