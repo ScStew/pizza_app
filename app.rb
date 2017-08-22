@@ -27,8 +27,26 @@ get "/confirm" do
 end
 
 post "/confirm" do
-meats = params[:meats]
-veggies = params[:veggies]
-special = params[:special]
-"#{meats}<br>#{veggies}<br>#{special}"
+session[:meats] = params[:meats]
+session[:veggies] = params[:veggies]
+session[:special] = params[:special]
+redirect "/delivery"
+end
+
+get "/delivery" do
+	erb :delivery
+end
+
+post "/delivery" do
+	delivery = params[:delivery]
+	if delivery == "delivery"
+		redirect "/address?"
+	else
+		redirect "/results?delivery=" + delivery
+	end
+end
+
+
+get "/address" do
+	erb :address
 end

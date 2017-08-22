@@ -5,10 +5,9 @@ please confirm your order
 	<%=crust%> crust<br>
 	<h1>meats</h1>
 	<%i = 0%>
-	<%mea = []%>
 	<%meats.each do |x|%>
 		<input type = "radio" id = "meats" name = "meats[<%=i%>]" value = "<%=x%>" checked>yes
-		<input type = "radio" id = "meats" name = "meats[<%=i%>]" value = "">no
+		<input type = "radio" id = "meats" name = "meats[<%=i%>]">no
 		<%=x%><br>
 		<%i += 1%>
  	<%end%>
@@ -18,7 +17,7 @@ please confirm your order
 	<%i = 0%>
 	<%veggies.each do |x|%>
 		<input type = "radio" name = "veggies[<%=i%>]" value = "<%=x%>" checked>yes
-		<input type = "radio" name = "veggies[<%=i%>]" value = "">no
+		<input type = "radio" name = "veggies[<%=i%>]">no
 		<%=x%><br>
 	<%i += 1%>
 	<%end%>
@@ -27,7 +26,7 @@ please confirm your order
 	<%i = 0%>
 	<%special.each do |x|%>
 		<input type = "radio" name = "special[<%=i%>]" value = "<%=x%>" checked >yes
-		<input type = "radio" name = "special[<%=i%>]" value = "">no
+		<input type = "radio" name = "special[<%=i%>]">no
 		<%=x%><br>
 	<%i += 1%>
 	<%end%>
