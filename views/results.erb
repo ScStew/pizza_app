@@ -1,0 +1,32 @@
+Heres your pizza!!!!!<br><br>
+
+<%=size%><br>
+<%=crust%><br>
+
+<%meats.each_pair do |key, value|%>
+	<%if value == "on"%>
+		<%meats.delete(key)%>
+	<%else%>
+		<%=value%><br>
+	<%end%>
+<%end%>
+
+<%veggies.each_pair do |key, value|%>
+	<%if value == "on"%>
+		<%veggies.delete(key)%>
+	<%else%>
+		<%=value%><br>
+	<%end%>
+<%end%>
+
+<%special.each_pair do |key, value|%>
+	<%if value == "on"%>
+		<%special.delete(key)%>
+	<%else%>			
+		<%value%><br>
+	<%end%>
+<%end%>
+
+<%=delivery%><br>
+<%=address%>
+

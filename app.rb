@@ -50,3 +50,15 @@ end
 get "/address" do
 	erb :address
 end
+
+post "/address" do 
+	delivery = params[:delivery]
+	address = para
+	redirect "/results?delivery=" + delivery + "&address=" + address
+end
+
+get "/results" do
+	delivery = params[:delivery]
+	address = params[:address]
+	erb :results, locals:{crust:session[:crust],size:session[:size],meats:session[:meats],veggies:session[:veggies],special:session[:special],delivery:delivery,address:address}
+end

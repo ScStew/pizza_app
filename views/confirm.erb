@@ -7,6 +7,7 @@ please confirm your order
 
 	<%else%>
 		<h1>meats</h1>
+		<%arr = []%>
 		<%i = 0%>
 		<%meats.each do |x|%>
 			<input type = "radio" id = "meats" name = "meats[<%=i%>]" value = "<%=x%>" checked>yes
@@ -14,7 +15,7 @@ please confirm your order
 			<%=x%><br>
 			<%i += 1%>
 	 	<%end%>
-	<%end%>
+	 <%end%>
 
  	<%if veggies == nil%>
 
@@ -24,7 +25,8 @@ please confirm your order
 		<%veggies.each do |x|%>
 			<input type = "radio" name = "veggies[<%=i%>]" value = "<%=x%>" checked>yes
 			<input type = "radio" name = "veggies[<%=i%>]">no
-			<%=x%><br>
+			<%=x%>
+			<br>
 		<%i += 1%>
 		<%end%>
 	<%end%>
