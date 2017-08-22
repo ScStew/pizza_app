@@ -1,0 +1,33 @@
+header{
+	color:red;
+	text-align:center;
+	font-size:15vh;
+}
+
+#box{
+	background-color:rgba(165, 82, 18, 0.65);
+	font-size:6vh;
+	border-style:double;
+	border-color:gold;
+	margin-bottom:1vh;
+	margin-right:55%;
+}
+
+#toppings{
+	font-size:4vh;
+	border-bottom-style: double;
+	border-color:gold;
+	padding:0;
+	margin:0;
+	overflow:hidden;
+}
+
+body{
+	color:gold;
+	font-size:5vh;
+	background-image:url(/images/background.jpg);
+	background-size:cover;
+	background-position:fixed;
+
+
+}

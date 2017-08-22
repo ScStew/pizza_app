@@ -26,6 +26,10 @@ get "/confirm" do
 	erb :confirm, locals: {size:session[:size],crust:session[:crust], meats:session[:meats],veggies:session[:veggies], special:session[:special]}
 end
 
+post "/back" do
+	redirect "/"
+end
+
 post "/confirm" do
 session[:meats] = params[:meats]
 session[:veggies] = params[:veggies]
@@ -53,7 +57,7 @@ end
 
 post "/address" do 
 	delivery = params[:delivery]
-	address = para
+	address = params[:address]
 	redirect "/results?delivery=" + delivery + "&address=" + address
 end
 
