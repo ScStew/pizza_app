@@ -9,7 +9,7 @@ Heres your pizza!!!!!<br><br>
 		<%=crust%><br>
 	</div>
 
-	<%meats.each_value do |value|%>
+	<%meats.each do |value|%>
 		<%if value == "on"%>
 
 		<%else%>
@@ -21,7 +21,7 @@ Heres your pizza!!!!!<br><br>
 		<%end%>
 	<%end%>
 
-	<%veggies.each_value do |value|%>
+	<%veggies.each do |value|%>
 		<%if value == "on"%>
 
 		<%else%>
@@ -33,7 +33,7 @@ Heres your pizza!!!!!<br><br>
 		<%end%>
 	<%end%>
 
-	<%special.each_value do |value|%>
+	<%special.each do |value|%>
 		<%if value == "on"%>
 
 		<%else%>			

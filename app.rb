@@ -31,10 +31,13 @@ post "/back" do
 end
 
 post "/confirm" do
-session[:meats] = params[:meats]
-session[:veggies] = params[:veggies]
-session[:special] = params[:special]
-redirect "/delivery"
+	mea = params[:meats]
+	veg = params[:veggies]
+	spe = params[:special]
+	session[:meats]= mea.values
+	session[:veggies] = veg.values
+	session[:special] = spe.values
+	redirect "/delivery"
 end
 
 get "/delivery" do
