@@ -34,22 +34,25 @@ post "/confirm" do
 	mea = params[:meats]
 	veg = params[:veggies]
 	spe = params[:special]
-	if mea == nil
+	
+		if mea == nil
 
-	else
-	session[:meats]= mea.values
-	end
+		else
+		session[:meats]= mea.values
+		end
 
 	if veg == nil
 
 	else
 	session[:veggies] = veg.values
 	end
-	if spe == nil
 
-	else
-	session[:special] = spe.values
-	end
+		if spe == nil
+
+		else
+		session[:special] = spe.values
+		end
+	
 	redirect "/delivery"
 end
 
@@ -80,5 +83,6 @@ end
 get "/results" do
 	delivery = params[:delivery]
 	address = params[:address]
+	p "#{session[:special]}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 	erb :results, locals:{lname:session[:lname],crust:session[:crust],size:session[:size],meats:session[:meats],veggies:session[:veggies],special:session[:special],delivery:delivery,address:address}
 end
