@@ -1,6 +1,7 @@
 Heres your pizza!!!!!<br><br>
 <div id = "box">
-	
+	<%=lname%>
+
 	<div id = "toppings">
 		<%=size%><br>
 	</div>
@@ -9,38 +10,49 @@ Heres your pizza!!!!!<br><br>
 		<%=crust%><br>
 	</div>
 
-	<%meats.each do |value|%>
-		<%if value == "on"%>
+	<%if meats == nil%>
 
-		<%else%>
-	
-	<div id = "toppings">
-			<img src = "/images/<%=value%>.png" width = "40" height = "40">
-			<%=value%><br>
-	</div>
+	<%else%>
+		<%meats.each do |value|%>
+			<%if value == "on"%>
+
+			<%else%>
+		
+		<div id = "toppings">
+				<img src = "/images/<%=value%>.png" width = "40" height = "40">
+				<%=value%><br>
+		</div>
+			<%end%>
 		<%end%>
 	<%end%>
 
-	<%veggies.each do |value|%>
-		<%if value == "on"%>
+	<%if veggies == nil%>
 
-		<%else%>
-	
-	<div id = "toppings">
-			<img src = "/images/<%=value%>.png"  width="42" height="42">
-			<%=value%><br>
-	</div>
+	<%else%>
+		<%veggies.each do |value|%>
+			<%if value == "on"%>
+
+			<%else%>
+		
+		<div id = "toppings">
+				<img src = "/images/<%=value%>.png"  width="42" height="42">
+				<%=value%><br>
+		</div>
+			<%end%>
 		<%end%>
 	<%end%>
+	<%if special == nil%>
 
-	<%special.each do |value|%>
-		<%if value == "on"%>
+	<%else%>
+		<%special.each do |value|%>
+			<%if value == "on"%>
 
-		<%else%>			
-	
-	<div id = "toppings">
-			<%value%><br>
-	</div>		
+			<%else%>			
+		
+		<div id = "toppings">
+				<%value%><br>
+		</div>		
+			<%end%>
 		<%end%>
 	<%end%>
 
