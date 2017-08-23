@@ -15,16 +15,13 @@ please confirm your order
 	<%else%>
 	<div id = "box">
 		meats
-		<%arr = []%>
-		<%i = 0%>
 		<%meats.each do |x|%>
 		<div id = "toppings">
-			<input type = "radio" id = "meats" name = "meats[<%=i%>]" value = "<%=x%>" checked>yes
-			<input type = "radio" id = "meats" name = "meats[<%=i%>]">no
+			<input type = "radio" id = "meats" name = "meats[<%=x%>]" value = "<%=x%>" checked>yes
+			<input type = "radio" id = "meats" name = "meats[<%=x%>]">no
 			<%=x%>
 			<img src = "/images/<%=x%>.png"  width="42" height="42"><br>
 		</div>
-			<%i += 1%>
 	 	<%end%>
 	 <%end%>
 	</div>
@@ -34,16 +31,14 @@ please confirm your order
 	<%else%>
 		<div id = "box">	
 			Veggies
-			<%i = 0%>
 			<%veggies.each do |x|%>
 			<div id = "toppings">
-				<input type = "radio" name = "veggies[<%=i%>]" value = "<%=x%>" checked>yes
-				<input type = "radio" name = "veggies[<%=i%>]">no
+				<input type = "radio" name = "veggies[<%=x%>]" value = "<%=x%>" checked>yes
+				<input type = "radio" name = "veggies[<%=x%>]">no
 				<%=x%>
 				<img src = "/images/<%=x%>.png"  width="42" height="42">
 				<br>
 			</div>
-			<%i += 1%>
 			<%end%>
 		<%end%>
 	</div>
@@ -53,14 +48,12 @@ please confirm your order
 	<%else%>
 		<div id = "box">
 			specials
-			<%i = 0%>
 			<%special.each do |x|%>
 			<div id = "toppings">
-				<input type = "radio" name = "special[<%=i%>]" value = "<%=x%>" checked >yes
-				<input type = "radio" name = "special[<%=i%>]">no
+				<input type = "radio" name = "special[<%=x%>]" value = "<%=x%>" checked >yes
+				<input type = "radio" name = "special[<%=x%>]">no
 				<%=x%><br>
 			</div>
-			<%i += 1%>
 			<%end%>
 		<%end%>
 	</div>	

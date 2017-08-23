@@ -9,9 +9,9 @@ Heres your pizza!!!!!<br><br>
 		<%=crust%><br>
 	</div>
 
-	<%meats.each_pair do |key, value|%>
+	<%meats.each_value do |value|%>
 		<%if value == "on"%>
-			<%meats.delete(key)%>
+
 		<%else%>
 	
 	<div id = "toppings">
@@ -21,9 +21,9 @@ Heres your pizza!!!!!<br><br>
 		<%end%>
 	<%end%>
 
-	<%veggies.each_pair do |key, value|%>
+	<%veggies.each_value do |value|%>
 		<%if value == "on"%>
-			<%veggies.delete(key)%>
+
 		<%else%>
 	
 	<div id = "toppings">
@@ -33,9 +33,9 @@ Heres your pizza!!!!!<br><br>
 		<%end%>
 	<%end%>
 
-	<%special.each_pair do |key, value|%>
+	<%special.each_value do |value|%>
 		<%if value == "on"%>
-			<%special.delete(key)%>
+
 		<%else%>			
 	
 	<div id = "toppings">
