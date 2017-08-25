@@ -12,6 +12,7 @@ please confirm your order
 		<div id = "toppings">
 		<%crust.each_pair do |crust,price|%>	
 			<%=crust%> crust + $<%=price%><br>
+		<input type = "hidden" name = "price[]" value = "<%=price%>">
 		<%end%>
 		</div>
 	</div>	
@@ -75,7 +76,5 @@ please confirm your order
 	<input type = "submit" value = "enter">
 	</form>
 
-	<form method = "post" action="back">
-	<input type = "submit" value = "REDO">
-	</form>
+
 

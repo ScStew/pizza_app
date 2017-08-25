@@ -7,7 +7,7 @@ end
 
 post "/names" do
 	session[:lname] = params[:lname]
- 	redirect "/size"
+ 	redirect "/delivery"
 end
 
 get "/size" do
@@ -41,8 +41,8 @@ post "/confirm" do
 	mea = params[:meats]
 	veg = params[:veggies]
 	spe = params[:special]
-	session[:price] = params[:price]
-	session[:total_for_one] = total_cost(session[:price])
+	price = params[:price]
+	session[:total_for_one] = total_cost(price)
 
 		if mea == nil
 
@@ -62,7 +62,7 @@ post "/confirm" do
 		session[:special] = spe.values
 		end
 	
-	redirect "/delivery"
+	redirect "/results"
 end
 
 get "/delivery" do
@@ -70,11 +70,11 @@ get "/delivery" do
 end
 
 post "/delivery" do
-	delivery = params[:delivery]
-	if delivery == "delivery"
+	session[:delivery] = params[:delivery]
+	if session[:delivery] == "delivery"
 		redirect "/address?"
 	else
-		redirect "/results?delivery=" + delivery
+		redirect "/size"
 	end
 end
 
@@ -84,13 +84,11 @@ get "/address" do
 end
 
 post "/address" do 
-	delivery = params[:delivery]
-	address = params[:address]
-	redirect "/results?delivery=" + delivery + "&address=" + address
+	session[:address] = params[:address]
+	redirect "/size"
 end
 
 get "/results" do
-	delivery = params[:delivery]
-	address = params[:address]
-	erb :results, locals:{total:session[:total_for_one],crust:session[:crust_p],size:session[:size_p],meats:session[:meats_p],veggies:session[:veggies_p],special:session[:special_p],delivery:delivery,address:address}
+	erb :results, locals:{total:session[:total_for_one],crust:session[:crust_p],size:session[:size_p],meats:session[:meats_p],veggies:session[:veggies_p],special:session[:special_p]}
 end
+

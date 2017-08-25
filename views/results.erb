@@ -1,15 +1,18 @@
 Heres your pizza!!!!!<br><br>
+<form method = "post" action = "make another">
 <div id = "box">
 
 	<div id = "toppings">
 	<%size.each_pair do |y, x|%>
 		$<%=x%> :<%=y%><br>
+		<input type = "hidden" name = "pizza[]" value = "<%=y%>">
 	<%end%>
 	</div>
 
 	<div id = "toppings">
 	<%crust.each_pair do |y,x|%>
 		$<%=x%> :<%=y%><br>
+		<input type = "hidden" name = "pizza[]" value = "<%=y%>">
 	<%end%>
 	</div>
 
@@ -25,6 +28,7 @@ Heres your pizza!!!!!<br><br>
 				<div id = "toppings">
 					$<%=price%>	:<%=value%>
 					<img src = "/images/<%=value%>.png" width = "40" height = "40"><br>
+					<input type = "hidden" name = "pizza[]" value = "<%=value%>">
 				</div>
 				<%end%>
 			<%end%>
@@ -43,6 +47,7 @@ Heres your pizza!!!!!<br><br>
 					<div id = "toppings">
 						$<%=price%>	:<%=value%>
 						<img src = "/images/<%=value%>.png"  width="42" height="42"><br>
+						<input type = "hidden" name = "pizza[]" value = "<%=value%>">
 					</div>
 				<%end%>
 			<%end%>
@@ -60,6 +65,7 @@ Heres your pizza!!!!!<br><br>
 										
 					<div id = "toppings">
 						$<%=price%>	:<%=value%><br>
+						<input type = "hidden" name = "pizza[]" value = "<%=value%>">
 					</div>		
 				<%end%>
 			<%end%>
@@ -71,3 +77,65 @@ Heres your pizza!!!!!<br><br>
 	$<%=total%> :total
 	</div>
 </div>
+<button type = "submit">MAKE ANOTHER ONE</button>
+</form>
+
+
+<form method = "post" action = "checkout">
+
+	<%size.each_pair do |y, x|%>
+		<input type = "hidden" name = "pizza[]" value = "<%=y%>">
+	<%end%>
+	
+	<%crust.each_pair do |y,x|%>
+		<input type = "hidden" name = "pizza[]" value = "<%=y%>">
+	<%end%>
+
+	<%if meats == nil%>
+
+	<%else%>
+		<%meats.each do |meat|%>	
+			<%meat.each_pair do |value, price|%>
+				<%if value == "on"%>
+
+				<%else%>
+
+					<input type = "hidden" name = "pizza[]" value = "<%=value%>">
+				<%end%>
+			<%end%>
+		<%end%>	
+	<%end%>
+
+	<%if veggies == nil%>
+
+	<%else%>
+		<%veggies.each do |veggy|%>
+			<%veggy.each do |value, price|%>
+				<%if value == "on"%>
+
+				<%else%>
+						<input type = "hidden" name = "pizza[]" value = "<%=value%>">
+				<%end%>
+			<%end%>
+		<%end%>
+	<%end%>
+
+	<%if special == nil%>
+
+	<%else%>
+		<%special.each do |spec|%>
+			<%spec.each_pair do |value,price|%>
+				<%if value == "on"%>
+
+				<%else%>							
+						<input type = "hidden" name = "pizza[]" value = "<%=value%>">	
+				<%end%>
+			<%end%>
+		<%end%>
+	<%end%>
+
+
+
+
+<button type = "submit">CHECKOUT</button>
+</form>
