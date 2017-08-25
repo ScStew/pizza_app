@@ -2,41 +2,49 @@ Heres your pizza!!!!!<br><br>
 <div id = "box">
 
 	<div id = "toppings">
-		<%=size%>: $<%=price[0]%><br>
+	<%size.each_pair do |y, x|%>
+		$<%=x%> :<%=y%><br>
+	<%end%>
 	</div>
 
 	<div id = "toppings">
-		<%=crust%>: $<%=price[1]%><br>
+	<%crust.each_pair do |y,x|%>
+		$<%=x%> :<%=y%><br>
+	<%end%>
 	</div>
 
 	<%if meats == nil%>
 
 	<%else%>
-		<%meats.each do |value|%>
-			<%if value == "on"%>
+		<%meats.each do |meat|%>	
+			<%meat.each_pair do |value, price|%>
+				<%if value == "on"%>
 
-			<%else%>
-										
-			<div id = "toppings">
-				<img src = "/images/<%=value%>.png" width = "40" height = "40">
-				<%=value%><br>
-			</div>
+				<%else%>
+											
+				<div id = "toppings">
+					$<%=price%>	:<%=value%>
+					<img src = "/images/<%=value%>.png" width = "40" height = "40"><br>
+				</div>
+				<%end%>
 			<%end%>
-		<%end%>
+		<%end%>	
 	<%end%>
 
 	<%if veggies == nil%>
 
 	<%else%>
-		<%veggies.each do |value|%>
-			<%if value == "on"%>
+		<%veggies.each do |veggy|%>
+			<%veggy.each do |value, price|%>
+				<%if value == "on"%>
 
-			<%else%>
-									
-				<div id = "toppings">
-					<img src = "/images/<%=value%>.png"  width="42" height="42">
-					<%=value%><br>
-				</div>
+				<%else%>
+										
+					<div id = "toppings">
+						$<%=price%>	:<%=value%>
+						<img src = "/images/<%=value%>.png"  width="42" height="42"><br>
+					</div>
+				<%end%>
 			<%end%>
 		<%end%>
 	<%end%>
@@ -44,23 +52,22 @@ Heres your pizza!!!!!<br><br>
 	<%if special == nil%>
 
 	<%else%>
-		<%special.each do |value|%>
-			<%if value == "on"%>
+		<%special.each do |spec|%>
+			<%spec.each_pair do |value,price|%>
+				<%if value == "on"%>
 
-			<%else%>			
-									
-			<div id = "toppings">
-				<%=value%><br>
-			</div>		
+				<%else%>			
+										
+					<div id = "toppings">
+						$<%=price%>	:<%=value%><br>
+					</div>		
+				<%end%>
 			<%end%>
 		<%end%>
 	<%end%>
 
-	<div id = "toppings">
-	<%=delivery%><br>
-	</div>
 
 	<div id = "toppings">
-	<%=address%>
+	$<%=total%> :total
 	</div>
 </div>

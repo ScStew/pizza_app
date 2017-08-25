@@ -21,16 +21,16 @@ post "/size" do
 	pizza_veggies = params[:veggies]
 	pizza_special = params[:special]
 
-	session[:size] = single_seperator(pizza_size) 
-	session[:crust] = single_seperator(pizza_crust)
-	session[:meats] = seperator(pizza_meats)
-	session[:veggies] = seperator(pizza_veggies)
-	session[:special] = seperator(pizza_special)
+	session[:size_p] = single_seperator(pizza_size) 
+	session[:crust_p] = single_seperator(pizza_crust)
+	session[:meats_p] = seperator(pizza_meats)
+	session[:veggies_p] = seperator(pizza_veggies)
+	session[:special_p] = seperator(pizza_special)
 	redirect "/confirm"
 end
 
 get "/confirm" do 
-	erb :confirm, locals: {size:session[:size],crust:session[:crust], meats:session[:meats],veggies:session[:veggies], special:session[:special]}
+	erb :confirm, locals: {size:session[:size_p],crust:session[:crust_p], meats:session[:meats_p],veggies:session[:veggies_p], special:session[:special_p]}
 end
 
 post "/back" do
@@ -92,5 +92,5 @@ end
 get "/results" do
 	delivery = params[:delivery]
 	address = params[:address]
-	erb :results, locals:{price:session[:price],crust:session[:crust],size:session[:size],meats:session[:meats],veggies:session[:veggies],special:session[:special],delivery:delivery,address:address}
+	erb :results, locals:{total:session[:total_for_one],crust:session[:crust_p],size:session[:size_p],meats:session[:meats_p],veggies:session[:veggies_p],special:session[:special_p],delivery:delivery,address:address}
 end
