@@ -83,6 +83,5 @@ end
 get "/results" do
 	delivery = params[:delivery]
 	address = params[:address]
-	p "#{session[:special]}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 	erb :results, locals:{lname:session[:lname],crust:session[:crust],size:session[:size],meats:session[:meats],veggies:session[:veggies],special:session[:special],delivery:delivery,address:address}
 end
