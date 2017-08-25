@@ -9,11 +9,16 @@ Here your order!!!!
 				<%=item%><br>
 			</div>
 		<%end%>
-		<%=total[counter]%>
+		$<%=final_price[counter]%>
 	</div>
-	$<%counter =+ 1%>
+	<%counter =+ 1%>
 <%end%>
 
-total is : $<%=total.sum%>
-
-
+<%price = 0.0%>
+<%final_price.each do |number|%>
+	<%x = number.to_f%>
+	<%price += x%>
+<%end%>
+<div id = "box">
+$<%=price%> :total
+</div>
