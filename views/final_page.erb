@@ -1,17 +1,17 @@
 Here your order!!!!
 
-<%counter = 0%>
+<%counter = 1%>
 <%final.each do |pizza|%>
 	<div id = "box">
-	Pizza <%=counter + 1%>
+	Pizza <%=counter%>
 		<%pizza.each do |item|%>
 			<div id = "toppings">
 				<%=item%><br>
 			</div>
 		<%end%>
-		$<%=final_price[counter]%>
+		$<%=final_price[counter - 1]%>
 	</div>
-	<%counter =+ 1%>
+	<%counter += 1%>
 <%end%>
 
 <%price = 0.0%>
@@ -19,6 +19,26 @@ Here your order!!!!
 	<%x = number.to_f%>
 	<%price += x%>
 <%end%>
+
+<%tax = price/6%>
 <div id = "box">
-$<%=price%> :total
+	<div id = "toppings">
+		$<%=price%> :cost
+	</div>
+	<div id = "toppings">
+	$<%=tax.round(2)%> :tax
+	</div>
+	<%if delivery == "delivery"%>
+		<div id = "toppings">
+			$10.00	<%=delivery%>
+			<%price + 10%>
+		</div>
+	<%else%>
+		<div id = "toppings">
+			<%=delivery%>
+		</div>
+	<%end%>
+<%=price + tax.round(2)%>
+
 </div>
+

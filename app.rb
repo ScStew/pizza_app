@@ -2,6 +2,8 @@ require "sinatra"
 require_relative "functions.rb"
 enable "sessions"
 get "/" do
+	session[:final] = nil
+	session[:final_price] = nil
 	erb :names
 end
 
@@ -21,10 +23,15 @@ post "/size" do
 	pizza_veggies = params[:veggies]
 	pizza_special = params[:special]
 
+
+
+
 	session[:size_p] = single_seperator(pizza_size) 
 	session[:crust_p] = single_seperator(pizza_crust)
-	
-	if pizza_meats == nil
+
+	if pizza_meats == nil && session[:meats_p].any?
+		session[:meats].delete
+	elsif pizza_meats == nil
 	else
 	session[:meats_p] = seperator(pizza_meats)
 	end
@@ -145,6 +152,7 @@ post "/checkout" do
 end
 
 get "/final_results" do
-
+	p "#{session[:final]}"
+	p "#{session[:final_price]}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 	erb :final_page ,locals:{lname:session[:lname], delivery:session[:delivery], address:session[:address],final_price:session[:final_price],final:session[:final]}
 end
