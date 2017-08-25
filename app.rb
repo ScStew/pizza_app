@@ -92,3 +92,24 @@ get "/results" do
 	erb :results, locals:{total:session[:total_for_one],crust:session[:crust_p],size:session[:size_p],meats:session[:meats_p],veggies:session[:veggies_p],special:session[:special_p]}
 end
 
+post "make_another" do
+	pizza = params[:pizza]
+		if session[:final] == nil
+			session[:final] = []
+			session[:final] << pizza
+		else
+			session[:final] << pizza
+		end
+	redirect "/size"
+end
+
+post "/checkout" do
+	pizza = params[:pizza]
+		if session[:final] == nil
+			session[:final] = []
+			session[:final] << pizza
+		else
+			session[:final] << pizza
+		end
+	redirect "/final results"
+end

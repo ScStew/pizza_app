@@ -1,5 +1,5 @@
 Heres your pizza!!!!!<br><br>
-<form method = "post" action = "make another">
+<form method = "post" action = "make_another">
 <div id = "box">
 
 	<div id = "toppings">
@@ -86,7 +86,7 @@ Heres your pizza!!!!!<br><br>
 	<%size.each_pair do |y, x|%>
 		<input type = "hidden" name = "pizza[]" value = "<%=y%>">
 	<%end%>
-	
+
 	<%crust.each_pair do |y,x|%>
 		<input type = "hidden" name = "pizza[]" value = "<%=y%>">
 	<%end%>
