@@ -92,8 +92,15 @@ get "/results" do
 	erb :results, locals:{total:session[:total_for_one],crust:session[:crust_p],size:session[:size_p],meats:session[:meats_p],veggies:session[:veggies_p],special:session[:special_p]}
 end
 
-post "make_another" do
+post "/make_another" do
 	pizza = params[:pizza]
+	total = params[:total]
+		if session[:final_price] == nil
+			session[:final_price] = []
+			session[:final_price] << total
+		else
+			session[:final_price] << total
+		end
 		if session[:final] == nil
 			session[:final] = []
 			session[:final] << pizza
@@ -105,11 +112,23 @@ end
 
 post "/checkout" do
 	pizza = params[:pizza]
+	total = params[:total]
+		if session[:final_price] == nil
+			session[:final_price] = []
+			session[:final_price] << total
+		else
+			session[:final_price] << total
+		end
+
 		if session[:final] == nil
 			session[:final] = []
 			session[:final] << pizza
 		else
 			session[:final] << pizza
 		end
-	redirect "/final results"
+	redirect "/final_results"
+end
+
+get "/final_results" do
+	erb :final_page ,locals{final_price:session[:final_price],final:session[:final]}
 end

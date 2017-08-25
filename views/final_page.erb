@@ -1,0 +1,19 @@
+Here your order!!!!
+
+<%counter = 0%>
+<%final.each do |pizza|%>
+	<div id = "box">
+	Pizza <%=counter + 1%>
+		<%pizza.each do |item|%>
+			<div id = "toppings">
+				<%=item%><br>
+			</div>
+		<%end%>
+		<%=total[counter]%>
+	</div>
+	$<%counter =+ 1%>
+<%end%>
+
+total is : $<%=total.sum%>
+
+
