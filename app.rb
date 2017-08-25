@@ -1,4 +1,5 @@
 require "sinatra"
+require_relative "functions.rb"
 enable "sessions"
 get "/" do
 	erb :names
@@ -14,11 +15,17 @@ get "/size" do
 end
 
 post "/size" do
-	session[:size] = params[:size]
-	session[:crust] = params[:crust]
-	session[:meats] = params[:meats]
-	session[:veggies] = params[:veggies]
-	session[:special]= params[:special]
+	pizza_size	= params[:size]
+	pizza_crust = params[:crust]
+	pizza_meats = params[:meats]
+	pizza_veggies = params[:veggies]
+	pizza_special = params[:special]
+
+	session[:size] = single_seperator(pizza_size) 
+	session[:crust] = single_seperator(pizza_crust)
+	session[:meats] = seperator(pizza_meats)
+	session[:veggies] = seperator(pizza_veggies)
+	session[:special] = seperator(pizza_special)
 	redirect "/confirm"
 end
 
