@@ -3,11 +3,16 @@ please confirm your order
 <form method = "post" action = "confirm">
 	<div id = "box">
 		<div id = "toppings">
-			<%=size%><br>
+		<%size.each_pair do |size,price|%>
+			<%=size%> $<%=price%><br>
+			<input type = "hidden" name = "price[]" value = "<%=price%>">
+		<%end%>
 		</div>
 		
-		<div id = "toppings">	
-			<%=crust%> crust<br>
+		<div id = "toppings">
+		<%crust.each_pair do |crust,price|%>	
+			<%=crust%> crust + $<%=price%><br>
+		<%end%>
 		</div>
 	</div>	
 	<%if meats == nil%>
@@ -15,15 +20,18 @@ please confirm your order
 	<%else%>
 	<div id = "box">
 		meats
-		<%meats.each do |x|%>
-		<div id = "toppings">
-			<input type = "radio" id = "meats" name = "meats[<%=x%>]" value = "<%=x%>" checked>yes
-			<input type = "radio" id = "meats" name = "meats[<%=x%>]">no
-			<%=x%>
-			<img src = "/images/<%=x%>.png"  width="42" height="42"><br>
-		</div>
+		<%meats.each do |meat|%>
+			<%meat.each_pair do |x,price|%>
+				<div id = "toppings">
+					<input type = "radio" id = "meats" name = "meats[<%=x%>]" value = "<%=x%>" checked>yes
+					<input type = "radio" id = "meats" name = "meats[<%=x%>]">no
+					<input type = "hidden" name = price[] value = "<%=price%>">
+					<%=x%> + $<%=price%>
+					<img src = "/images/<%=x%>.png"  width="42" height="42"><br>
+				</div>
+			 		<%end%>
+			<%end%>
 	 	<%end%>
-	 <%end%>
 	</div>
 
  	<%if veggies == nil%>
@@ -31,14 +39,17 @@ please confirm your order
 	<%else%>
 		<div id = "box">	
 			Veggies
-			<%veggies.each do |x|%>
-			<div id = "toppings">
-				<input type = "radio" name = "veggies[<%=x%>]" value = "<%=x%>" checked>yes
-				<input type = "radio" name = "veggies[<%=x%>]">no
-				<%=x%>
-				<img src = "/images/<%=x%>.png"  width="42" height="42">
-				<br>
-			</div>
+			<%veggies.each do |veggy|%>
+				<%veggy.each_pair do |x,price|%>
+				<div id = "toppings">
+					<input type = "radio" name = "veggies[<%=x%>]" value = "<%=x%>" checked>yes
+					<input type = "radio" name = "veggies[<%=x%>]">no
+					<input type = "hidden" name = "price[]" value = "<%=price%>"
+					<%=x%> + $<%=price%>
+					<img src = "/images/<%=x%>.png"  width="42" height="42">
+					<br>
+				</div>
+				<%end%>
 			<%end%>
 		<%end%>
 	</div>
@@ -48,12 +59,15 @@ please confirm your order
 	<%else%>
 		<div id = "box">
 			specials
-			<%special.each do |x|%>
-			<div id = "toppings">
-				<input type = "radio" name = "special[<%=x%>]" value = "<%=x%>" checked >yes
-				<input type = "radio" name = "special[<%=x%>]">no
-				<%=x%><br>
-			</div>
+			<%special.each do |spec|%>
+				<%spec.each_pair do |x,price|%>
+				<div id = "toppings">
+					<input type = "radio" name = "special[<%=x%>]" value = "<%=x%>" checked >yes
+					<input type = "radio" name = "special[<%=x%>]">no
+					<input type = "hidden" name = "price[]" value = "<%=price%>">
+					<%=x%> + $<%=price%><br>
+				</div>
+				<%end%>
 			<%end%>
 		<%end%>
 	</div>	
