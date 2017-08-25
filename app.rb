@@ -41,7 +41,9 @@ post "/confirm" do
 	mea = params[:meats]
 	veg = params[:veggies]
 	spe = params[:special]
-	
+	session[:price] = params[:price]
+	session[:total_for_one] = total_cost(session[:price])
+
 		if mea == nil
 
 		else
@@ -90,5 +92,5 @@ end
 get "/results" do
 	delivery = params[:delivery]
 	address = params[:address]
-	erb :results, locals:{lname:session[:lname],crust:session[:crust],size:session[:size],meats:session[:meats],veggies:session[:veggies],special:session[:special],delivery:delivery,address:address}
+	erb :results, locals:{price:session[:price],crust:session[:crust],size:session[:size],meats:session[:meats],veggies:session[:veggies],special:session[:special],delivery:delivery,address:address}
 end

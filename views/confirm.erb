@@ -23,11 +23,11 @@ please confirm your order
 		<%meats.each do |meat|%>
 			<%meat.each_pair do |x,price|%>
 				<div id = "toppings">
+					<img src = "/images/<%=x%>.png"  width="42" height="42">					
 					<input type = "radio" id = "meats" name = "meats[<%=x%>]" value = "<%=x%>" checked>yes
 					<input type = "radio" id = "meats" name = "meats[<%=x%>]">no
 					<input type = "hidden" name = price[] value = "<%=price%>">
-					<%=x%> + $<%=price%>
-					<img src = "/images/<%=x%>.png"  width="42" height="42"><br>
+					<%=x%> + $<%=price%><br>
 				</div>
 			 		<%end%>
 			<%end%>
@@ -42,11 +42,11 @@ please confirm your order
 			<%veggies.each do |veggy|%>
 				<%veggy.each_pair do |x,price|%>
 				<div id = "toppings">
+					<img src = "/images/<%=x%>.png"  width="42" height="42">
 					<input type = "radio" name = "veggies[<%=x%>]" value = "<%=x%>" checked>yes
 					<input type = "radio" name = "veggies[<%=x%>]">no
-					<input type = "hidden" name = "price[]" value = "<%=price%>"
+					<input type = "hidden" name = "price[]" value = "<%=price%>">
 					<%=x%> + $<%=price%>
-					<img src = "/images/<%=x%>.png"  width="42" height="42">
 					<br>
 				</div>
 				<%end%>

@@ -14,3 +14,12 @@ def single_seperator(arr)
 	new_hash = {x[0] => x[1]}
 	new_hash
 end
+
+def total_cost(arr)
+	total = 0.0
+	arr.each do |price|
+		x = price.to_f
+	total += x
+	end
+	total
+end
