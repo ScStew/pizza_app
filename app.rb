@@ -156,7 +156,6 @@ post "/checkout" do
 end
 
 get "/final_results" do
-	p "#{session[:final]}"
-	p "#{session[:final_price]}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+
 	erb :final_page ,locals:{lname:session[:lname], delivery:session[:delivery], address:session[:address],final_price:session[:final_price],final:session[:final]}
 end

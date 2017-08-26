@@ -30,15 +30,16 @@ Here your order!!!!
 	</div>
 	<%if delivery == "delivery"%>
 		<div id = "toppings">
-			$10.00	<%=delivery%>
-			<%price + 10%>
+			$10.00	<%=delivery%> | address: <%=address%>
 		</div>
+		$<%=price + tax.round(2) + 10%> :final price<br>
+		<%=lname%> :name on order
 	<%else%>
 		<div id = "toppings">
 			<%=delivery%>
 		</div>
+	$<%=price + tax.round(2)%> :final price<br> 
+	<%=lname%> :name on order
 	<%end%>
-<%=price + tax.round(2)%>
-
 </div>
 
