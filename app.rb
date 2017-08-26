@@ -38,14 +38,14 @@ post "/size" do
 	
 	if pizza_veggies == nil && session[:veggies_p] != nil
 		session[:veggies_p] = nil
-	elsif
+	elsif pizza_veggies == nil
 	else
 	session[:veggies_p] = seperator(pizza_veggies)
 	end	
 
 	if pizza_special == nil && session[:special_p] != nil
 		session[:special_p] = nil
-	elsif
+	elsif pizza_special == nil
 	else
 	session[:special_p] = seperator(pizza_special)
 	end
