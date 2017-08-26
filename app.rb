@@ -29,19 +29,23 @@ post "/size" do
 	session[:size_p] = single_seperator(pizza_size) 
 	session[:crust_p] = single_seperator(pizza_crust)
 
-	if pizza_meats == nil && session[:meats_p].any?
-		session[:meats].delete
+	if pizza_meats == nil && session[:meats_p] != nil
+		session[:meats_p] = nil
 	elsif pizza_meats == nil
 	else
 	session[:meats_p] = seperator(pizza_meats)
 	end
 	
-	if pizza_veggies == nil
+	if pizza_veggies == nil && session[:veggies_p] != nil
+		session[:veggies_p] = nil
+	elsif
 	else
 	session[:veggies_p] = seperator(pizza_veggies)
 	end	
 
-	if pizza_special == nil
+	if pizza_special == nil && session[:special_p] != nil
+		session[:special_p] = nil
+	elsif
 	else
 	session[:special_p] = seperator(pizza_special)
 	end
