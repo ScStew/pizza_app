@@ -1,6 +1,18 @@
 <head>
 <link rel = "stylesheet" href = "css/style.css">
 <header>Pizza</header>
+	
+	<%if session[:final_price] == nil%>
+
+	<%else%>
+			<%price = 0.0%>
+			<%session[:final_price].each do |x|%>
+			<%price = price + x.to_f%>
+			<%end%>
+				<div id = "box">	
+					<%=price%> :total
+				</div>
+	<%end%>
 
 </head>
 
